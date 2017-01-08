@@ -1,6 +1,6 @@
 <?php
 namespace Modular\Types;
 
-interface NumericType extends Type {
+interface NumericType extends ValueType {
 	const Type = 'Numeric';
 }

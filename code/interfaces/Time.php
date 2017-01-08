@@ -1,6 +1,6 @@
 <?php
 namespace Modular\Types;
 
-interface TimeType extends StringType, IntType {
+interface TimeType extends EpochType, StringType, IntType {
 	const Type = 'Time';
 }

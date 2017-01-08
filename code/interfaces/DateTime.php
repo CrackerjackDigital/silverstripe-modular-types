@@ -1,6 +1,6 @@
 <?php
 namespace Modular\Types;
 
-interface DateTimeType extends DateType, TimeType, StringType, IntType {
+interface DateTimeType extends EpochType, DateType, TimeType {
 	const Type = 'DateTime';
 }
