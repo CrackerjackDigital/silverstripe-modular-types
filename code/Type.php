@@ -1,12 +1,13 @@
 <?php
 namespace Modular;
 
-use Modular\Fields\Code;
 use Modular\Traits\debugging;
 use Modular\Traits\reflection;
 use Modular\Types\Type as TypeInterface;
+use SilverStripe\Core\Injector\Injector;
+use SilverStripe\ORM\DataObject;
 
-class Type extends \DataObject implements TypeInterface {
+class Type extends DataObject implements TypeInterface {
 	use debugging;
 	use reflection;
 
@@ -17,13 +18,13 @@ class Type extends \DataObject implements TypeInterface {
 	public function __invoke() {
 		return $this;
 	}
-	
+
 	public static function type() {
 		return static::strip_namespace();
 	}
 
 	public static function create() {
-		return \Injector::inst()->createWithArgs(static::config()->get('injector_name') ?: get_called_class(), func_get_args());
+		return Injector::inst()->createWithArgs(static::config()->get('injector_name') ?: get_called_class(), func_get_args());
 	}
 
 	/**
@@ -39,7 +40,4 @@ class Type extends \DataObject implements TypeInterface {
 		$this->ClassName = get_class($this);
 	}
 
-	public static function get_by_code($code) {
-		return static::get()->filter(Code::SingleFieldName, $code)->first();
-	}
 }
