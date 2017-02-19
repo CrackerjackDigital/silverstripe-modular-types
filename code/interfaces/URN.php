@@ -8,6 +8,7 @@ namespace Modular\Types;
  */
 interface URNType extends StringType {
 	const Type = 'URN';
+	const Schema = 'Text';
 	const TypedValuePrefix = '';
-	
+
 }

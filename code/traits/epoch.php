@@ -1,12 +1,11 @@
 <?php
-namespace Modular\Types\Traits;
+namespace Modular\Traits;
 
-use Modular\Types\DateType;
-use Modular\Types\EpochType;
-use Modular\Types\IntType;
+use Modular\Types\Date;
+use Modular\Types\Epoch;
 use Modular\Types\NumericType;
 use Modular\Types\StringType;
-use Modular\Types\TimeType;
+use Modular\Types\Time;
 
 /**
  * Allow casting of value to/from int value which represents unix epoch and string date.
@@ -15,7 +14,7 @@ use Modular\Types\TimeType;
  */
 trait epoch {
 	abstract public function singleFieldValue();
-	
+
 	/**
 	 * Return the format to use for the typeCase, e.g date only, time only or date and time.
 	 * @param string $typeCast a Type class name
@@ -23,15 +22,15 @@ trait epoch {
 	 */
 	public function typedValueFormat($typeCast = StringType::class) {
 		switch ($typeCast) {
-		case DateType::Type:
-			return DateType::FormatDate;
-		case TimeType::Type:
-			return TimeType::FormatTime;
+		case Date::Type:
+			return Date::FormatDate;
+		case Time::Type:
+			return Time::FormatTime;
 		default:
-			return EpochType::FormatDateTime;
+			return Epoch::FormatDateTime;
 		}
 	}
-	
+
 	/**
 	 * Returns value cast between StringType and IntType if typeCast is passed and one of those two options.
 	 * Otherwise returns the value as is.
@@ -41,14 +40,14 @@ trait epoch {
 	 */
 	public function typedValue($typeCast = null) {
 		if ($value = $this->singleFieldValue()) {
-			if (is_a($typeCast, EpochType::class, true) || is_a($typeCast, StringType::class, true)) {
-				
+			if (is_a($typeCast, Epoch::class, true) || is_a($typeCast, StringType::class, true)) {
+
 				$value = date($this->typedValueFormat($typeCast), $value);
-				
+
 			} elseif (is_a($typeCast, NumericType::class, true)) {
-				
+
 				$value = strtotime($value);
-				
+
 			}
 		}
 		return $value;

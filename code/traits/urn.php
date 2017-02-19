@@ -1,9 +1,9 @@
 <?php
-namespace Modular\Types\Traits;
+namespace Modular\Traits;
 
 trait urn {
 	abstract public function singleFieldValue();
-	
+
 	public function typedValuePrefix() {
 		return defined('static::TypedValuePrefix') ? static::TypedValuePrefix : '';
 	}
@@ -20,6 +20,6 @@ trait urn {
 		}
 		return $value;
 	}
-	
-	
+
+
 }

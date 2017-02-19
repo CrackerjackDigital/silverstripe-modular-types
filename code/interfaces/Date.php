@@ -1,6 +1,7 @@
 <?php
 namespace Modular\Types;
 
-interface DateType extends EpochType, StringType, IntType {
+interface Date extends Epoch, StringType, IntType {
 	const Type = 'Date';
+	const Schema = 'Date';
 }
