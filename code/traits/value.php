@@ -1,14 +1,14 @@
 <?php
-namespace Modular\Types\Traits;
+namespace Modular\Traits;
 
 use Modular\Exceptions\Exception;
 
 trait value {
-	
+
 	abstract public function __invoke();
-	
+
 	abstract public function singleFieldValue();
-	
+
 	/**
 	 * Just return the singleFieldValue
 	 * @param string|null $typeCast class name of Type to cast to, e.g. StringType::class from caller
@@ -23,6 +23,6 @@ trait value {
 		}
 		return $value;
 	}
-	
-	
+
+
 }
