@@ -2,6 +2,6 @@
 namespace Modular\Types;
 
 interface BoolType extends ValueType {
-	const Type = 'Boolean';
-	const Schema = 'Boolean';
+	const Type   = 'Bool';
+	const Schema = 'Bool';
 }

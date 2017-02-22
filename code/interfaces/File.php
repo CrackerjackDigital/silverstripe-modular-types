@@ -1,7 +1,8 @@
 <?php
 namespace Modular\Types;
 
-interface FileType extends URNType {
+interface FileType extends RefType {
 	const TypedValuePrefix = 'file://';
-	const Schema = 'File';
+	const Type             = 'File';
+	const Schema           = 'File';
 }

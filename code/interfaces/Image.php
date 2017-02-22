@@ -1,6 +1,6 @@
 <?php
 namespace Modular\Types;
 
-interface ImageType extends FileType {
+interface ImageType extends RefType {
 	const Type = 'Image';
 }

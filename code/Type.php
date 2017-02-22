@@ -17,7 +17,11 @@ class Type extends \DataObject implements TypeInterface {
 	public function __invoke() {
 		return $this;
 	}
-	
+
+	public static function schema() {
+		return static::strip_namespace();
+	}
+
 	public static function type() {
 		return static::strip_namespace();
 	}
@@ -40,6 +44,6 @@ class Type extends \DataObject implements TypeInterface {
 	}
 
 	public static function get_by_code($code) {
-		return static::get()->filter(Code::SingleFieldName, $code)->first();
+		return static::get()->filter(Code::Name, $code)->first();
 	}
 }

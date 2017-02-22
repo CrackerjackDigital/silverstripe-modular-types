@@ -1,7 +1,8 @@
 <?php
 namespace Modular\Types;
 
-interface IntType extends NumericType {
-	const Type = 'Int';
+interface IntType extends ValueType {
+	const Type   = 'Int';
 	const Schema = 'Int';
+
 }

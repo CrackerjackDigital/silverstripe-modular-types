@@ -5,8 +5,7 @@ namespace Modular\Types;
  *
  * @package Modular\Types
  */
-interface Text {
-	public function toText();
-
-	public function fromText($text);
+interface TextType extends ValueType {
+	const Type   = 'Text';
+	const Schema = 'Text';
 }
