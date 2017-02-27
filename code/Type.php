@@ -10,6 +10,8 @@ class Type extends \DataObject implements TypeInterface {
 	use debugging;
 	use reflection;
 
+	const CodeFieldName = 'Code';
+
 	/**
 	 * Invoking a type returns itself.
 	 * @return $this
@@ -44,6 +46,6 @@ class Type extends \DataObject implements TypeInterface {
 	}
 
 	public static function get_by_code($code) {
-		return static::get()->filter(Code::Name, $code)->first();
+		return static::get()->filter(static::CodeFieldName, $code)->first();
 	}
 }
