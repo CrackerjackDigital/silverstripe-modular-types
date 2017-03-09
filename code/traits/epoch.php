@@ -2,7 +2,7 @@
 namespace Modular\Traits;
 
 use Modular\Types\Date;
-use Modular\Types\Epoch;
+use Modular\Types\Epoch as EpochType;
 use Modular\Types\NumericType;
 use Modular\Types\StringType;
 use Modular\Types\Time;
@@ -27,7 +27,7 @@ trait epoch {
 		case Time::Type:
 			return Time::FormatTime;
 		default:
-			return Epoch::FormatDateTime;
+			return EpochType::FormatDateTime;
 		}
 	}
 
