@@ -40,11 +40,28 @@ class Type extends \DataObject implements TypeInterface {
 		return get_called_class();
 	}
 
+	/**
+	 * This is the same as class_name by default, however could be overridden e.g. by trait custom_class in derived classes.
+	 * @return string
+	 */
+	public static function custom_class_name() {
+		return static::class_name();
+	}
+
+	/**
+	 * TODO figure out why?
+	 */
 	public function onBeforeWrite() {
 		parent::onBeforeWrite();
 		$this->ClassName = get_class($this);
 	}
 
+	/**
+	 * Convenience method as Types generally are dealt with by Code.
+	 * @param string $code
+	 *
+	 * @return \DataObject
+	 */
 	public static function get_by_code($code) {
 		return static::get()->filter(static::CodeFieldName, $code)->first();
 	}
