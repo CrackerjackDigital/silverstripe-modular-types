@@ -1,7 +1,7 @@
 <?php
 namespace Modular\Types;
 
-interface Type {
+interface TypeInterface {
 	// local type name, should be defined on derived interface, e.g. 'String'
 	// const Type = '';
 	// field schema, should be defined on derived interface, e.g. 'Text

@@ -1,7 +1,7 @@
 <?php
 namespace Modular\Types;
 
-interface ValueType extends Type {
+interface ValueType extends TypeInterface {
 
 	/**
 	 * Return the type casted to the provided type or of the implemented type if no type cast specified.
