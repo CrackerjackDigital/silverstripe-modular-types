@@ -1,6 +1,7 @@
 <?php
 namespace Modular\Types;
 
-interface RefManyType extends RefType {
+interface RefManyManyType extends RefType {
+	const Arity = self::ManyMany;
 
 }
