@@ -6,7 +6,4 @@ namespace Modular\Types;
  * @package Modular\Types
  */
 interface Epoch {
-	const FormatDate = 'Y-m-d';
-	const FormatTime = 'h:i:s';
-	const FormatDateTime = 'Y-m-d h:i:s';
 }
