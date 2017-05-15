@@ -1,6 +1,11 @@
 <?php
-
 namespace Modular\Types;
+
+/**
+ * String (Varchar) types of various utility lengths. The default StringType is 255 characters long. For Text see TextType or HTMLType.
+ *
+ * @package Modular\Types
+ */
 
 interface StringType extends ValueType {
 	const Type      = 'String';
