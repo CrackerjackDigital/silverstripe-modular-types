@@ -1,11 +1,18 @@
 <?php
+
 namespace Modular;
 
-use Modular\Fields\Code;
+use Modular\Exceptions\Exception;
 use Modular\Traits\debugging;
 use Modular\Traits\reflection;
 use Modular\Types\TypeInterface as TypeInterface;
 
+/**
+ * Type
+ *
+ * @package Modular
+ * @property string Code
+ */
 class Type extends \DataObject implements TypeInterface {
 	use debugging;
 	use reflection;
@@ -57,11 +64,20 @@ class Type extends \DataObject implements TypeInterface {
 	}
 
 	/**
-	 * TODO figure out why?
+	 * Code is unique if set.
+	 * @throws \InvalidArgumentException
+	 * @throws \Modular\Exceptions\Exception
 	 */
 	public function onBeforeWrite() {
 		parent::onBeforeWrite();
 		$this->ClassName = get_class( $this );
+		if ( $code = $this->{static::CodeFieldName} ) {
+			if ( $exists = static::get_by_code( $code ) ) {
+				if ( $exists->ID == $this->ID ) {
+					throw new Exception( "A " . $this->i18n_singular_name() . " with code '$code' already exists" );
+				}
+			}
+		}
 	}
 
 	/**
@@ -70,6 +86,7 @@ class Type extends \DataObject implements TypeInterface {
 	 * @param string $code
 	 *
 	 * @return \DataObject
+	 * @throws \InvalidArgumentException
 	 */
 	public static function get_by_code( $code ) {
 		return static::get()->filter( static::CodeFieldName, $code )->first();
