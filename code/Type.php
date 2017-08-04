@@ -2,7 +2,7 @@
 
 namespace Modular;
 
-use Modular\Exceptions\Exception;
+use Modular\Fields\Code;
 use Modular\Traits\debugging;
 use Modular\Traits\reflection;
 use Modular\Types\TypeInterface as TypeInterface;
@@ -11,6 +11,7 @@ use Modular\Types\TypeInterface as TypeInterface;
  * Type
  *
  * @package Modular
+ * @property int    ID
  * @property string Code
  */
 class Type extends \DataObject implements TypeInterface {

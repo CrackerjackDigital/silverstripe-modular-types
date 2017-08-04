@@ -1,0 +1,6 @@
+---
+Name: modular-types-model
+---
+Modular\Type:
+  extensions:
+    - Modular\Fields\Title
