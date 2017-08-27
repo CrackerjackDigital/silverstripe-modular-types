@@ -51,5 +51,11 @@ interface StringType128 extends ValueType {
 
 }
 
+interface StringType255 extends ValueType {
+	const Type      = 'String';
+	const Schema    = 'Varchar(255)';
+	const MaxLength = 255;
 
+
+}
 
