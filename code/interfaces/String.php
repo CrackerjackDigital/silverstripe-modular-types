@@ -1,4 +1,5 @@
 <?php
+
 namespace Modular\Types;
 
 /**
@@ -56,6 +57,7 @@ interface StringType255 extends ValueType {
 	const Schema    = 'Varchar(255)';
 	const MaxLength = 255;
 
+}
 
 }
 
