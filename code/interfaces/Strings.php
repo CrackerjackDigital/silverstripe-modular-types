@@ -59,5 +59,3 @@ interface StringType255 extends ValueType {
 
 }
 
-}
-
