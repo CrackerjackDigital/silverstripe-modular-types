@@ -2,7 +2,7 @@
 
 namespace Modular;
 
-use Modular\Fields\Code;
+use Modular\Exceptions\Exception;
 use Modular\Traits\debugging;
 use Modular\Traits\reflection;
 use Modular\Types\TypeInterface as TypeInterface;
@@ -74,7 +74,7 @@ class Type extends \DataObject implements TypeInterface {
 		$this->ClassName = get_class( $this );
 		if ( $code = $this->{static::CodeFieldName} ) {
 			if ( $exists = static::get_by_code( $code ) ) {
-				if ( $exists->ID == $this->ID ) {
+				if ( $exists->ID != $this->ID ) {
 					throw new Exception( "A " . $this->i18n_singular_name() . " with code '$code' already exists" );
 				}
 			}
